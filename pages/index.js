@@ -85,7 +85,7 @@ const Section = styled.section`
 
 `
 
-export default function Home() {
+export default function Home(props) {
 
   const mentorData = [
     {
@@ -135,13 +135,12 @@ export default function Home() {
             <span>Mentor</span>
           </div>
           <div className="mentor-data">
-            {mentorData.map((item) => {
-              return (
+            {mentorData.map((item) => (
                 <div className="mentor">
                   <Mentor key={item.name} {...item} />
                 </div>
               )
-            })}
+            )}
             <div className="booking">
               <img src="/images/qr.png" alt="" />
               <div className="mentor-booking">
