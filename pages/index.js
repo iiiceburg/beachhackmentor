@@ -137,7 +137,7 @@ export default function Home(props) {
           <div className="mentor-data">
             {mentorData.map((item) => (
                 <div className="mentor">
-                  <Mentor key={item.name} {...item} />
+                  <Mentor {...item} />
                 </div>
               )
             )}
