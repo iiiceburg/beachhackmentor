@@ -5,14 +5,12 @@ import { Button } from 'antd';
 import styled from 'styled-components';
 
 const Section = styled.section`
-  margin : 0 auto;
-  padding : 20px;
   width : auto;
   height : auto;
   background : #ffffffe4;
   border-radius : 20px;
   padding : 50px;
-  margin : 20px;
+  margin : 50px;
 
   @media only screen and (max-width : 450px){
     padding : 20px;
@@ -31,6 +29,17 @@ const Section = styled.section`
         font-size : 32px;
         font-weight : 500;
       }
+
+      @media only screen and (max-width : 768px){
+        & > * {
+          flex-wrap : wrap;
+          width : 100%;
+          text-align : center;
+          img {
+            width : 50% !important;
+          }
+        }
+      }
     }
 
     .mentor-data {
@@ -39,37 +48,41 @@ const Section = styled.section`
       width : 100%;
       margin : 0 auto;
 
+      /* @media only screen and (min-width : 1200px){
+        grid-template-columns : 1fr 1fr 1fr 1fr 1fr;
+      } */
+
+      @media only screen and (max-width : 1100px) {
+        grid-template-columns : 1fr 1fr;
+      }
+
       @media only screen and (max-width : 768px) {
-        grid-template-columns : 1fr 1fr;
+        grid-template-columns : 1fr ;
       }
 
-      @media only screen and (max-width : 450px) {
-        grid-template-columns : 1fr 1fr;
+      .mentor, .booking{
+        margin : 0 auto;
+        text-align : center;
+      }
+
+      .mentor-booking-primary {
+        margin : 20px;
+        background-color: #0099FF !important;
+        border-radius: 5px !important;
+        color : white !important;
+        width : 150px !important;
+        font-size : 18px !important;
+      }
+
+      .mentor-booking-primary:hover {
+          background: white !important;
+          color : #0099FF !important;
+          border-color : #0099FF !important;
+          font-size : 20px !important;
       }
     }
   }
 
-  .mentor-booking{
-    width : 100%;
-    text-align : center;
-    margin-top : 20px;
-
-    Button {
-        background: #0099FF;
-        border-radius: 5px;
-        color : white;
-        width : 150px;
-        height : 50px;
-        font-size : 18px;
-    }
-
-    Button:hover {
-        background: white;
-        color : #0099FF;
-        border-color : #0099FF;
-        font-size : 20px;
-    }
-  }
 `
 
 export default function Home() {
@@ -116,18 +129,28 @@ export default function Home() {
       <Section className='section-container'>
         <div className='content-container'>
           <div className="content-header">
-            <img src="/images/logo.png" alt="" />
+            <div className="logo-img">
+              <img src="/images/logo.png" alt="" />
+            </div>
             <span>Mentor</span>
           </div>
           <div className="mentor-data">
             {mentorData.map((item) => {
-              return <Mentor key={item.name} {...item} />
+              return (
+                <div className="mentor">
+                  <Mentor key={item.name} {...item} />
+                </div>
+              )
             })}
+            <div className="booking">
+              <img src="/images/qr.png" alt="" />
+              <div className="mentor-booking">
+                <Button className="mentor-booking-primary" href='https://bit.ly/mentor-booking'>Book</Button>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="mentor-booking">
-          <Button className="mentor-booking-primary">Book</Button>
-        </div>
+
       </Section>
     </div>
   )
