@@ -105,7 +105,7 @@ export default function Home(props) {
     {
       name: 'บุษกานต์ นวลแก้ว',
       position: 'UX/UI Designer',
-      organization: 'Error Brothers Ltd.',
+      organization: 'MAQE',
       img: '/images/mentor/5.png',
       type: 'onsite'
     },
@@ -121,7 +121,7 @@ export default function Home(props) {
       position: 'Project Management Consultant',
       organization: 'กำลังศึกษาต่อ Executive MBA จุฬาลงกรณ์มหาวิทยาลัย',
       img: '/images/mentor/3.png',
-      type: 'onsite'
+      type: 'online'
     }
   ]
   return (
@@ -136,10 +136,10 @@ export default function Home(props) {
           </div>
           <div className="mentor-data">
             {mentorData.map((item) => (
-                <div className="mentor" key={item.name}>
-                  <Mentor {...item} />
-                </div>
-              )
+              <div className="mentor" key={item.name}>
+                <Mentor {...item} />
+              </div>
+            )
             )}
             <div className="booking">
               <img src="/images/qr.png" alt="" />
